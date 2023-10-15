@@ -32,12 +32,12 @@
 - All your files should end with a new line.
 - No more than 5 functions per file.
 - You are not allowed to use global variables.
-- The prototypes of all your functions should be included in your header file called `holberton.h`
+- The prototypes of all your functions should be included in your header file 
 - All your header files should be include guarded.
 
 ### Authorized functions and macros
 
-- `write` (`man 2 write`)
+- `write` (man 2 write`)
 - `malloc` (`man 3 malloc`)
 - `free` (`man 3 free`)
 - `va_start` (`man 3 va_start`)
