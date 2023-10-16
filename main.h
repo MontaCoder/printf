@@ -4,5 +4,5 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
-
+int printf_string(va_list val);
 #endif
