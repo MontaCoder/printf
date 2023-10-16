@@ -1,5 +1,4 @@
 #include "main.h"
-<<<<<<< HEAD
 /**
  * printf_string - print a string.
  * @val: argumen t.
@@ -27,19 +26,4 @@ int printf_string(va_list val)
 			_putchar(s[i]);
 		return (len);
 	}
-=======
-
-/**
- * printf_char - prints a char.
- * @val: arguments.
- * Return: 1.
- */
-int printf_char(va_list val)
-{
-	char s;
-
-	s = va_arg(val, int);
-	_putchar(s);
-	return (1);
->>>>>>> 2c09ab26cd4c7cd3b3b026cd1956ee267bfa6742
 }
