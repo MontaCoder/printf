@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+int printf_int(va_list args);
+int printf_dec(va_list args);
 int _strlenc(const char *s);
 int _strlen(char *s);
 int printf_string(va_list val);
