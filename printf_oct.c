@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * print_octal - Prints the numeric representation of a number in octal base
- * @list: List of all the arguments passed to the program
- * Return: Number of symbols printed to stdout
+ * printf_oct - prints an octal number.
+ * @val: arguments.
+ * Return: counter.
  */
+<<<<<<< HEAD
 #include "main.h"
 
 /**
@@ -48,4 +49,33 @@ int printf_oct(va_list arguments, char *buf, unsigned int ibuf)
 	free(binary);
 	free(octal);
 	return (count);
+=======
+int printf_oct(va_list val)
+{
+	int i;
+	int *array;
+	int counter = 0;
+	unsigned int num = va_arg(val, unsigned int);
+	unsigned int temp = num;
+
+	while (num / 8 != 0)
+	{
+		num /= 8;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(int));
+
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 8;
+		temp /= 8;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
+>>>>>>> 5d7950a828d7624ce682b6d9dbec2050dc98a50b
 }
