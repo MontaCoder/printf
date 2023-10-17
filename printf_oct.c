@@ -5,38 +5,47 @@
  * @list: List of all the arguments passed to the program
  * Return: Number of symbols printed to stdout
  */
+#include "main.h"
 
-int printf_oct(va_list list)
+/**
+ * print_oct - prints decimal number in octal
+ * @arguments: input number
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
+ * Return: number of chars printed.
+ */
+int printf_oct(va_list arguments, char *buf, unsigned int ibuf)
 {
-	unsigned int num;
-	int len;
-	char *octal_rep;
-	char *rev_str;
+	int int_input, i, isnegative, count, first_digit;
+	char *octal, *binary;
 
-	num = va_arg(list, unsigned int);
-
-	if (num == 0)
-		return (_putchar('0'));
-	if (num < 1)
-		return (-1);
-	len = base_len(num, 8);
-
-	octal_rep = malloc(sizeof(char) * len + 1);
-	if (octal_rep == NULL)
-		return (-1);
-	for (len = 0; num > 0; len++)
+	int_input = va_arg(arguments, int);
+	isnegative = 0;
+	if (int_input == 0)
 	{
-		octal_rep[len] = (num % 8) + 48;
-		num = num / 8;
-
+		ibuf = handl_buf(buf, '0', ibuf);
+		return (1);
 	}
-	octal_rep[len] = '\0';
-	rev_str = rev_string(octal_rep);
-	if (rev_str == NULL)
-		return (-1);
-
-	write_base(rev_str);
-	free(octal_rep);
-	free(rev_str);
-	return (len);
+	if (int_input < 0)
+	{
+		int_input = (int_input * -1) - 1;
+		isnegative = 1;
+	}
+	binary = malloc(sizeof(char) * (32 + 1));
+	binary = fill_binary_array(binary, int_input, isnegative, 32);
+	octal = malloc(sizeof(char) * (11 + 1));
+	octal = fill_oct_array(binary, octal);
+	for (first_digit = i = count = 0; octal[i]; i++)
+	{
+		if (octal[i] != '0' && first_digit == 0)
+			first_digit = 1;
+		if (first_digit)
+		{
+			ibuf = handl_buf(buf, octal[i], ibuf);
+			count++;
+		}
+	}
+	free(binary);
+	free(octal);
+	return (count);
 }

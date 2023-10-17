@@ -24,7 +24,7 @@ typedef struct format
 
 int printf_HEX(va_list val);
 int printf_hex(va_list val);
-int printf_oct(va_list val);
+int printf_oct(va_list arguments, char *buf, unsigned int ibuf);
 int printf_unsigned(va_list args);
 int printf_bin(va_list val);
 int printf_srev(va_list args);
