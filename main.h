@@ -13,4 +13,5 @@ int printf_string(va_list val);
 int printf_37(void);
 int _printf(const char *format, ...);
 int printf_char(va_list val);
+int printf_bin(va_list val);
 #endif
